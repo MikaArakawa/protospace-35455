@@ -17,6 +17,10 @@ class CommentsController < ApplicationController
     @comments = @prototype.comments.includes(:user)
   end
 
+  def destroy
+  end
+  
+
     private
     def comment_params
       params.require(:comment).permit(:text).merge(user_id: current_user.id, prototype_id: params[:prototype_id])
